@@ -1,4 +1,5 @@
-#pragma once
+#ifndef Arcade_h
+#define Arcade_h
 
 #include <iostream>
 #include <string>
@@ -20,3 +21,4 @@ public:
 	string name, delimiter = "\n\n========================================================\n========================================================\n\n";  // String name and divider
 };
 
+#endif
