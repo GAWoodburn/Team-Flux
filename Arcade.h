@@ -1,5 +1,5 @@
-#ifndef Arcade_h
-#define Arcade_h
+#ifndef Arcade_H
+#define Arcade_H
 
 #include <iostream>
 #include <string>
