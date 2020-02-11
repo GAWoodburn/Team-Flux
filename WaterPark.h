@@ -1,4 +1,5 @@
-#pragma once
+#ifndef WaterPark_H
+#define WaterPark_H
 
 using namespace std;
 
@@ -10,7 +11,7 @@ private:
 public:
 
 	WaterPark(double &); // The constructor calls then entire program
-
+	~WaterPark(){};      // Default Destructor
 	// Global Variables
 	const int ONE = 1;
 	const int TEN = 10;
@@ -39,3 +40,4 @@ public:
 	
 };
 
+#endif
