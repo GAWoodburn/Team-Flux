@@ -10,8 +10,8 @@ private:
 
 public:
 
-	Arcade();
-
+	Arcade();    // Constructor called in main switch 
+	~Arcade(){}; // Default destructor 
 	void menu(char& decision, string& delimiter);  // Menu function
 
 	double playerMoney = 100.00;  // Player money
