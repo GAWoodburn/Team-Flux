@@ -1,4 +1,6 @@
-#pragma once
+#ifndef Casino_H
+#define Casino_H
+
 class Casino{
 
 private:
@@ -15,3 +17,4 @@ public:
 
 };
 
+#endif
