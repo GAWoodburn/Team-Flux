@@ -1,3 +1,6 @@
 
 
 This is the Team-Flux repository
+
+Notice the commits tab. Each commit stores the instance of upload. To revert back to the first instance of this document
+choose the previous commit or "state". 
