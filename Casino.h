@@ -7,8 +7,8 @@ private:
 
 public:
 
-	Casino();
-
+	Casino();     // Constructor called in main switch 
+	~Casino(){};  // Default Destructor
 	int x = 1;
 	int rand(int n);
 	bool win();
