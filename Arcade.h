@@ -5,14 +5,14 @@
 #include <string>
 using namespace std;
 
-class Arcade{
+class Arcade {
 
 private:
 
 public:
 
 	Arcade();    // Constructor called in main switch 
-	~Arcade(){}; // Default destructor 
+	~Arcade() {}; // Default destructor 
 	void menu(char& decision, string& delimiter);  // Menu function
 
 	double playerMoney = 100.00;  // Player money

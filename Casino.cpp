@@ -4,16 +4,17 @@
 #include<iostream>
 #include<math.h>
 #include<time.h> 
+#include <cstdlib>
 
 using namespace std;
 
 Casino::Casino() {
     cout << "*****************Welcome********************* \n";
-    cout << "\t Rules£º\n";
+    cout << "\t Rules\n";
     cout << endl;
-    cout << "\t 1.Max bet is 100£»\n";
+    cout << "\t 1.Max bet is 100\n";
     cout << endl;
-    cout << "\t 2.If your point is over 21, you will lose£»\n";
+    cout << "\t 2.If your point is over 21, you will lose\n";
     cout << endl;
     cout << "\t 3.Dealer can't hit when card is over or equal to 16. \n";
     cout << endl;
@@ -33,7 +34,7 @@ void Casino::money()
     for (;;)
     {
 
-        cout << "Please enter your bet£¨you have $ " << a << "£©";
+        cout << "Please enter your bet you have $ " << a << " ";
         cin >> c;
         if (c > 100 || c < 1) {
             cout << "Max is $100, you can't bet more. Please re-enter." << endl;

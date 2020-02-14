@@ -319,7 +319,7 @@ here:  // Jump to here if player wishes to choose another game
 
 leave: // Case f goto command to bypass continue or leave prompt
 	cout << "\n\nYour score, " << name << ", at the ARCANE ARCADE was : $" << playerMoney << endl;  // Display player name and final money count
-	
+
 }
 
 void Arcade::menu(char& decision, string& delimiter)  // Menu function that accepts char decision and delimiter string
@@ -334,4 +334,3 @@ void Arcade::menu(char& decision, string& delimiter)  // Menu function that acce
 	cin >> decision;
 	cout << delimiter;
 }
-

@@ -10,8 +10,8 @@ private:
 
 public:
 
-	WaterPark(double &); // The constructor calls then entire program
-	~WaterPark(){};      // Default Destructor
+	WaterPark(double &, bool &); // The constructor calls then entire program
+
 	// Global Variables
 	const int ONE = 1;
 	const int TEN = 10;
@@ -25,9 +25,11 @@ public:
 
 	double playerMoney = 100.00; // player starts off with $100.00
 
+	bool isPlayerDead = false; // used to return true if the player has died
+
 	// forward declarations
 	void introduction();
-	void mainChoices(char&, char&, char&, char&, double&);
+	void mainChoices(char&, char&, char&, char&, double&, bool&);
 	void decisionATwo(char&, double&);
 	void decisionAThree();
 	bool decisionAFour(char&);
@@ -41,3 +43,4 @@ public:
 };
 
 #endif
+

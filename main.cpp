@@ -1,9 +1,9 @@
-// Authors: Elijah Morishita, Robert Knar, Gabrial Woodburn, Alan Sanders, and Jason Shi
-// elmorishita@dmacc.edu, goosedamoose22@gmail.com, gwoodburn@dmacc.edu, acsanders1@dmacc.edu, jasonshijian@gmail.com
+// Authors: Elijah Morishita, Robert Knar, Gabrial Woodburn, and Jason Shi
+// elmorishita@dmacc.edu, goosedamoose22@gmail.com, gwoodburn@dmacc.edu, jasonshijian@gmail.com
 // 2/8/2020
 // Large Group Project - Text Adventure Game - This program is a text adventure game with a theme park theme.
 // Your character travels throughtout the park initially based on their personality, later they'll move about based own decisions and luck, 
-// they complete the game if the don't die or run out of money.
+// they complete the game if the don't die or run out of money (the money system is still under construction)
 
 
 #include <iostream>
@@ -11,6 +11,7 @@
 #include "WaterPark.h" // The WaterPark class - author: Elijah Morishita
 #include "Casino.h" // The Casino class - author: Jason Shi
 #include "Arcade.h" // The Arcade class - author: Gabrial Woodburn
+#include "KiddiePark.h" // The Kiddie Park - author: Robert Knarr
 using namespace std;
 
 // global variables used for the switch statement to travel throughout the park
@@ -29,6 +30,8 @@ int main() {
     int skip = ONE; // used to access the main menu after the personality exam
 
     double playerMoney; // used to pass the amount of money the player throughout the entire park
+    bool isPlayerdead = false; // used to end the game if the player dies
+
     bool endGame = true; // the flag to end the program
 
     while (endGame == true) {
@@ -58,21 +61,27 @@ int main() {
         case ONE: {
             // kiddie park
             cout << " The Kidde Park\n";
+            KiddiePark kiddieParkObj; // the kiddie park
             break;
         }
         case TWO: {
             cout << " The Water Park\n";
-            WaterPark waterObj(playerMoney); // The waterpark
+            WaterPark waterObj(playerMoney, isPlayerdead); // The waterpark
+            if (isPlayerdead == true) {
+                endGame = false; // if the player is dead the game ends
+            }
             break;
         }
         case THREE: {
             cout << " The Casino\n";
-            Casino blackJackObj; // The casino (BlackJack Game)
+            cout << " **** STILL UNDER CONSTRUCTION ****\n\n";
+            //Casino blackJackObj; // The casino (BlackJack Game)
             break;
         }
         case FOUR: {
             cout << " The Thrill Park\n";
-            // thrill park
+            cout << " **** STILL UNDER CONSTRUCTION ****\n\n";
+            // thrill park 
             break;
         }
         case FIVE: {

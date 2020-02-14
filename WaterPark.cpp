@@ -5,11 +5,12 @@
 #include <ctime> // for the time function 
 using namespace std;
 
-WaterPark::WaterPark(double &leftOverMoney) {
+WaterPark::WaterPark(double &leftOverMoney, bool &playerDeath) {
     // intro + a switch statment leading to the dialogue paths (A/B/C)
-    mainChoices(decision1, decision2a, decision4a, decision6b, playerMoney);
+    mainChoices(decision1, decision2a, decision4a, decision6b, playerMoney, isPlayerDead);
 
     leftOverMoney = playerMoney; // used to pass the players money along to travel the rest of the park
+    playerDeath = isPlayerDead; // used to pass the players status to the main menu 
 }
 
     void WaterPark::introduction() { // The intro to the water park
@@ -20,7 +21,7 @@ WaterPark::WaterPark(double &leftOverMoney) {
     }
 
     // a switch statment leading to other decisions (A/B/C)
-    void WaterPark::mainChoices(char& decision1, char& decision2a, char& decision4a, char& decision6b, double& playerMoney) {
+    void WaterPark::mainChoices(char& decision1, char& decision2a, char& decision4a, char& decision6b, double& playerMoney, bool &isPlayerDead) {
 
         bool endOfWaterPark = true; // flag to leave the water park
 
@@ -160,6 +161,8 @@ WaterPark::WaterPark(double &leftOverMoney) {
                 << " The concrete edge you held onto broke off and you fall to your death...\n\n"
                 << " ===================== GAME OVER ======================\n"
                 << " ======================================================\n\n";
+            isPlayerDead = true; // the player has died
+
             return false; // GAME OVER
         }
 
@@ -337,6 +340,8 @@ WaterPark::WaterPark(double &leftOverMoney) {
                 << " You fell to your death...\n\n"
                 << " ===================== GAME OVER ======================\n"
                 << " ======================================================\n\n";
+
+            isPlayerDead = true; // the player has died
 
             endOfWaterPark = false; // GAME OVER
         }
