@@ -6,11 +6,10 @@ This file will be defining what is contained in the header file of KiddiePark
 
 #include "KiddiePark.h"
 
-KiddiePark::KiddiePark()
+KiddiePark::KiddiePark(int playerMoney)
 {
-	//Upon construction, player is allocated 100 dollars.	
-	const double STARTING_MONEY = 100; //Will need to work on this and make it work with the other money that is in the game.	
-	SetTotalMoney(STARTING_MONEY);
+	//Upon construction, player is allocated money.		
+	SetTotalMoney(playerMoney);
 
 	RunKiddieParkTextAdventure();
 }
@@ -19,10 +18,10 @@ KiddiePark::~KiddiePark()
 {
 }
 //DisplayChoices will display the menu and the player can choose where they want to go.
-int KiddiePark::DisplayChoices()
+char KiddiePark::DisplayChoices()
 {
-	int playerInput;
-
+	char playerInput;
+	
 	cout << "1. Giant Slide" << endl;
 	cout << "2. Playground" << endl;
 	cout << "3. Cotton Candy Stall" << endl;
@@ -30,7 +29,7 @@ int KiddiePark::DisplayChoices()
 	cout << "5. Mini Dragon Coaster" << endl;
 	cin >> playerInput;
 
-	while (1 != playerInput && 2 != playerInput && 3 != playerInput && 4 != playerInput && 5 != playerInput)
+	while('1' != playerInput && '2' != playerInput && '3' != playerInput && '4' != playerInput && '5' != playerInput)
 	{
 		cout << "You turd. Enter a number that appears on the list: " << endl;
 		cout << "1. Giant Slide" << endl;
@@ -38,18 +37,18 @@ int KiddiePark::DisplayChoices()
 		cout << "3. Cotton Candy Stall" << endl;
 		cout << "4. Bathroom with abnormally small toilets that were definitely meant for five year olds" << endl;
 		cout << "5. Mini Dragon Coaster" << endl;
-		cin >> playerInput;
+		cin >> playerInput;	
 	}
 
 	return playerInput;
 }
 
-void KiddiePark::SetTotalMoney(double totalMoney)
+void KiddiePark::SetTotalMoney(int totalMoney)
 {
 	TotalMoney = totalMoney;
 }
 
-double KiddiePark::GetTotalMoney()
+int KiddiePark::GetTotalMoney()
 {
 	return TotalMoney;
 }
@@ -57,24 +56,24 @@ double KiddiePark::GetTotalMoney()
 void KiddiePark::RunKiddieParkTextAdventure()
 {
 	int playKiddieParkAgainInput;
-
+	
 	do
 	{
-		int playerInput;
-		int slideChoiceInput;
-		int cottonCandyInput;
-		int insideBathroomStallActivity;
-		int wipe;
-		int washHands;
-		int raiseHands;
+		char playerInput;		
+		char slideChoiceInput;
+		char cottonCandyInput;
+		char insideBathroomStallActivity;
+		char wipe;
+		char washHands;
+		char raiseHands;
 		int walletMoney;
-		double playerMoney;
-		double moneyReminder;
+		int playerMoney;
+		int moneyReminder;
 		bool gameLost = false;
-
+		
 		moneyReminder = GetTotalMoney();
 
-		if (0 > moneyReminder)
+		if(0 > moneyReminder)
 		{
 			cout << "Looks like you are out of money." << endl;
 			break;
@@ -83,10 +82,10 @@ void KiddiePark::RunKiddieParkTextAdventure()
 		cout << "Remember... you have " << moneyReminder << " dollar(s) left." << endl;
 		cout << "You are in the KIDDIE PARK." << endl;
 		cout << "We know you are just dying to get started so pick a number corresponding to where you want to go in the park: " << endl;
-
+		
 		playerInput = DisplayChoices();
 
-		if (1 == playerInput)
+		if('1' == playerInput)
 		{
 			cout << "Ah, yes. The Giant Slide. Good choice." << endl;
 			cout << "You begin to make your way over to the slide." << endl;
@@ -100,9 +99,9 @@ void KiddiePark::RunKiddieParkTextAdventure()
 			cout << "1. The Red Slide" << endl;
 			cout << "2. The Yellow Slide" << endl;
 			cout << "3. The Blue Slide" << endl;
-			cin >> slideChoiceInput;
+			cin >>	slideChoiceInput;
 
-			while (1 != slideChoiceInput && 2 != slideChoiceInput && 3 != slideChoiceInput)
+			while('1' != slideChoiceInput && '2' != slideChoiceInput && '3' != slideChoiceInput)
 			{
 				cout << "Are you kidding me right now? Pick a number that is in the list!" << endl;
 				cout << "1. The Red Slide" << endl;
@@ -111,7 +110,7 @@ void KiddiePark::RunKiddieParkTextAdventure()
 				cin >> slideChoiceInput;
 			}
 
-			if (1 == slideChoiceInput)
+			if('1' == slideChoiceInput)
 			{
 				cout << "You choose the Red Slide." << endl;
 				cout << "You say to the kid that on the count of three you will go." << endl;
@@ -121,19 +120,19 @@ void KiddiePark::RunKiddieParkTextAdventure()
 				cout << "He beats you to the bottom of the slide. That cheater!" << endl;
 				cout << "The kid screams pay up!" << endl;
 				cout << "People are now looking. Looks like you have to pay up." << endl;
-
+				
 				playerMoney = GetTotalMoney();
 				playerMoney -= 50; //50 represents the money you bet with the kid.
-
-				if (0 > playerMoney)
+				
+				if(0 > playerMoney)
 				{
 					cout << "You are officially out of cash." << endl;
 					break;
 				}
 
-				SetTotalMoney(playerMoney);
+				SetTotalMoney(playerMoney);	
 			}
-			else if (2 == slideChoiceInput)
+			else if('2' == slideChoiceInput)
 			{
 				cout << "You choose the Yellow Slide." << endl;
 				cout << "You start getting ready to go down the slide." << endl;
@@ -142,19 +141,19 @@ void KiddiePark::RunKiddieParkTextAdventure()
 				cout << "The kid suddenly lunges at you and grabs 50 dollars from your money pile." << endl;
 				cout << "They jump on the Red Slide and run off once they get to the bottom." << endl;
 				cout << "Looks like you lost 50 dollars." << endl;
-
+				
 				playerMoney = GetTotalMoney();
 				playerMoney -= 50;
 
-				if (0 > playerMoney)
+				if(0 > playerMoney)
 				{
 					cout << "You are officially out of cash." << endl;
 					break;
 				}
 
-				SetTotalMoney(playerMoney);
+				SetTotalMoney(playerMoney);	
 			}
-			else if (3 == slideChoiceInput)
+			else if('3' == slideChoiceInput)
 			{
 				cout << "You pick the Blue Slide." << endl;
 				cout << "The dad of the kid sees that his kid is racing someone yet again." << endl;
@@ -170,7 +169,7 @@ void KiddiePark::RunKiddieParkTextAdventure()
 				playerMoney = GetTotalMoney();
 				playerMoney -= 50;
 
-				if (0 > playerMoney)
+				if(0 > playerMoney)
 				{
 					cout << "You are officially out of cash." << endl;
 					break;
@@ -179,16 +178,16 @@ void KiddiePark::RunKiddieParkTextAdventure()
 				SetTotalMoney(playerMoney);
 			}
 		}
-		else if (2 == playerInput)
+		else if('2' == playerInput)
 		{
 			cout << "The Playground? You chose the Playground? Well, alright..." << endl;
 			cout << "Ya know what? Sorry, but you are gonna have to lose 10 dollars for going to the playground. This is just a lame place." << endl;
 			cout << "Why would you pick this? Go somewhere else." << endl;
-
+			
 			playerMoney = GetTotalMoney();
 			playerMoney -= 10; //10 is the money you lose for going to the playground.
 
-			if (0 > playerMoney)
+			if(0 > playerMoney)
 			{
 				cout << "You are officially out of cash." << endl;
 				break;
@@ -196,7 +195,7 @@ void KiddiePark::RunKiddieParkTextAdventure()
 
 			SetTotalMoney(playerMoney);
 		}
-		else if (3 == playerInput)
+		else if('3' == playerInput)
 		{
 			cout << "The Cotton Candy Stall! Great choice!" << endl;
 			cout << "Would you like:" << endl;
@@ -205,7 +204,7 @@ void KiddiePark::RunKiddieParkTextAdventure()
 			cout << "3. Both" << endl;
 			cin >> cottonCandyInput;
 
-			while (1 != cottonCandyInput && 2 != cottonCandyInput && 3 != cottonCandyInput)
+			while('1' != cottonCandyInput && '2' != cottonCandyInput && '3' != cottonCandyInput)
 			{
 				cout << "Jeez. Enter a correct number!" << endl;
 				cout << "Would you like:" << endl;
@@ -215,17 +214,17 @@ void KiddiePark::RunKiddieParkTextAdventure()
 				cin >> cottonCandyInput;
 			}
 
-			if (1 == cottonCandyInput)
+			if('1' == cottonCandyInput)
 			{
 				cout << "You chose Blue Cotton Candy." << endl;
 				cout << "The sketchy man behind the cotton candy stall says you owe him 20 dollars." << endl;
 				cout << "You think that this is quite outrageous, but you don't say it out loud." << endl;
 				cout << "You hand the sketchy man 20 dollars." << endl;
-
+				
 				playerMoney = GetTotalMoney();
 				playerMoney -= 20;
 
-				if (0 > playerMoney)
+				if(0 > playerMoney)
 				{
 					cout << "You are officially out of cash." << endl;
 					break;
@@ -233,12 +232,12 @@ void KiddiePark::RunKiddieParkTextAdventure()
 
 				SetTotalMoney(playerMoney);
 			}
-			else if (2 == cottonCandyInput)
+			else if('2' == cottonCandyInput)
 			{
 				cout << "You chose Pink Cotton Candy." << endl;
 				cout << "The sketchy man behind the counter demands you pay him 10 dollars." << endl;
 				cout << "You calmly hand over the money, not questioning his sketchy ways." << endl;
-
+				
 				playerMoney = GetTotalMoney();
 				playerMoney -= 10;
 				SetTotalMoney(playerMoney);
@@ -249,10 +248,10 @@ void KiddiePark::RunKiddieParkTextAdventure()
 				cout << "You walk over to her and offer to give her your Pink Cotton Candy." << endl;
 				cout << "She thanks you so much and quickly steals it away from you. She fishes around in her pocket and pulls out a 20." << endl;
 				cout << "She tells you to keep the money. 20 dollars! Wow!" << endl;
-
+				
 				playerMoney += 20;
 
-				if (0 > playerMoney)
+				if(0 > playerMoney)
 				{
 					cout << "You are officially out of cash." << endl;
 					break;
@@ -260,7 +259,7 @@ void KiddiePark::RunKiddieParkTextAdventure()
 
 				SetTotalMoney(playerMoney);
 			}
-			else if (3 == cottonCandyInput)
+			else if('3' == cottonCandyInput)
 			{
 				cout << "You chose to get both Cotton Candy Flavors." << endl;
 				cout << "The sketchy man serving the cotton candy is flustered. He has never done this before." << endl;
@@ -275,7 +274,7 @@ void KiddiePark::RunKiddieParkTextAdventure()
 				playerMoney = GetTotalMoney();
 				playerMoney = 0; //You lose the game here.
 
-				if (0 > playerMoney)
+				if(0 > playerMoney)
 				{
 					cout << "You are officially out of cash." << endl;
 					break;
@@ -285,45 +284,45 @@ void KiddiePark::RunKiddieParkTextAdventure()
 				gameLost = true;
 			}
 		}
-		else if (4 == playerInput)
+		else if('4' == playerInput)
 		{
 			cout << "The Bathroom? You just got here how do you have to go to the bathroom already? Okay fine." << endl;
 			cout << "You walk to the bathroom. You head inside." << endl;
 			cout << "Hate to get personal... but number 1 or number 2 (press number relating to what you want to do)?" << endl;
 			cin >> insideBathroomStallActivity;
 
-			while (1 != insideBathroomStallActivity && 2 != insideBathroomStallActivity)
+			while('1' != insideBathroomStallActivity && '2' != insideBathroomStallActivity)
 			{
 				cout << "1 or 2!" << endl;
 				cin >> insideBathroomStallActivity;
 			}
 
-			if (1 == insideBathroomStallActivity)
+			if('1' == insideBathroomStallActivity)
 			{
 				cout << "Well that was easy." << endl;
 			}
-			else if (2 == insideBathroomStallActivity)
+			else if('2' == insideBathroomStallActivity)
 			{
 				cout << "Wipe? 1 for 'yes' and 2 for 'no':" << endl;
 				cin >> wipe;
 
-				while (1 != wipe && 2 != wipe)
+				while('1' != wipe && '2' != wipe)
 				{
 					cout << "Wipe? 1 for 'yes' and 2 for 'no':" << endl;
 					cin >> wipe;
 				}
 
-				if (2 == wipe)
+				if('2' == wipe)
 				{
 					cout << "You hear a rumbling from the toilet. What is that?" << endl;
 					cout << "It's Mahpoo! The toilet god." << endl;
 					cout << "He screams at you for not wiping. How filthy!" << endl;
 					cout << "He decides to take you to the toilet realm with him. Your days on Earth are done. You die." << endl;
-
+					
 					playerMoney = GetTotalMoney();
 					playerMoney = 0; //End of game.
 
-					if (0 > playerMoney)
+					if(0 > playerMoney)
 					{
 						cout << "You are officially out of cash." << endl;
 						break;
@@ -337,22 +336,22 @@ void KiddiePark::RunKiddieParkTextAdventure()
 			cout << "You finish up and go to the sink. Wash your hands? 1 for 'yes' and 2 for 'no':" << endl;
 			cin >> washHands;
 
-			while (1 != washHands && 2 != washHands)
+			while('1' != washHands && '2' != washHands)
 			{
 				cout << "1 for 'yes' and 2 for 'no':" << endl;
-				cin >> washHands;
+				cin >> washHands;	
 			}
 
-			if (2 == washHands)
+			if('2' == washHands)
 			{
 				cout << "A health inspector sees you try to leave without washing your hands." << endl;
 				cout << "He tells you there is a new law in place that states if you don't wash your hands, you have to pay 5 dollars." << endl;
 				cout << "Next time wash your hands!" << endl;
-
+				
 				playerMoney = GetTotalMoney();
 				playerMoney -= 5; //This is the money you lose for not washing your hands.
 
-				if (0 > playerMoney)
+				if(0 > playerMoney)
 				{
 					cout << "You are officially out of cash." << endl;
 					break;
@@ -363,7 +362,7 @@ void KiddiePark::RunKiddieParkTextAdventure()
 
 			cout << "You exit the bathroom." << endl;
 		}
-		else if (5 == playerInput)
+		else if('5' == playerInput)
 		{
 			cout << "You choose to go to the Mini Dragon Coaster." << endl;
 			cout << "You walk over and notice a short line. Parents are standing with their children contemplating why they are in this section of the park when they could be in the casino." << endl;
@@ -374,13 +373,13 @@ void KiddiePark::RunKiddieParkTextAdventure()
 			cout << "Press 1 to raise your hands or 2 to keep them where they are:" << endl;
 			cin >> raiseHands;
 
-			while (1 != raiseHands && 2 != raiseHands)
+			while('1' != raiseHands && '2' != raiseHands)
 			{
 				cout << "Press 1 to raise your hands or 2 to keep them where they are:" << endl;
 				cin >> raiseHands;
 			}
 
-			if (1 == raiseHands)
+			if('1' == raiseHands)
 			{
 				cout << "You raise your hands cause you don't really care at this point." << endl;
 				cout << "You begin the descent down the mini coaster. In the distance you notice a bar that is pretty close to the seats of the coaster. Maybe 15 feet overhead." << endl;
@@ -389,11 +388,11 @@ void KiddiePark::RunKiddieParkTextAdventure()
 				cout << "You hear screams and start to black out." << endl;
 				cout << "The last thing you hear is one of the parents asking if they can go to the casino now." << endl;
 				cout << "You die." << endl;
-
+				
 				playerMoney = GetTotalMoney();
 				playerMoney = 0; //You died.
 
-				if (0 > playerMoney)
+				if(0 > playerMoney)
 				{
 					cout << "You are officially out of cash." << endl;
 					break;
@@ -402,7 +401,7 @@ void KiddiePark::RunKiddieParkTextAdventure()
 				SetTotalMoney(playerMoney);
 				gameLost = true;
 			}
-			else if (2 == raiseHands)
+			else if('2' == raiseHands)
 			{
 				cout << "You deal with the boring ride. You can't wait to get off." << endl;
 				cout << "As you get off you notice someone left their wallet." << endl;
@@ -411,21 +410,21 @@ void KiddiePark::RunKiddieParkTextAdventure()
 				cout << "What do you do? Press 1 to take the money or 2 to bring it to lost and found:" << endl;
 				cin >> walletMoney;
 
-				while (1 != walletMoney && 2 != walletMoney)
+				while('1' != walletMoney && '2' != walletMoney)
 				{
-					cout << "What do you do? Press 1 to take the money or 2 to bring it to lost and found:" << endl;
+					cout << "What do you do? Press 1 to take the money or 2 to bring it to lost and found:" << endl; 
 				}
-
-				if (1 == walletMoney)
+	
+				if('1' == walletMoney)
 				{
 					cout << "You look around to see if anyone is watching. You decide to take the money." << endl;
 					cout << "Wow! 15 dollars. Rock on!" << endl;
 					cout << "Nobody sees you take the money. You decide to place the wallet back down and act like nothing happened." << endl;
-
+				
 					playerMoney = GetTotalMoney();
 					playerMoney += 15; //This is the money you get from the wallet.
-
-					if (0 > playerMoney)
+				
+					if(0 > playerMoney)
 					{
 						cout << "You are officially out of cash." << endl;
 						break;
@@ -433,7 +432,7 @@ void KiddiePark::RunKiddieParkTextAdventure()
 
 					SetTotalMoney(playerMoney);
 				}
-				else if (2 == walletMoney)
+				else if('2' == walletMoney)
 				{
 					cout << "You decide to bring the wallet to lost and found." << endl;
 					cout << "As you are walking over, you hear some shouting in the distance." << endl;
@@ -445,22 +444,22 @@ void KiddiePark::RunKiddieParkTextAdventure()
 					cout << "When you wake, you are groggy. You check your posessions to see if you still have everything." << endl;
 					cout << "You notice that you have 15 dollars missing." << endl;
 					cout << "The dad took it while you were knocked out." << endl;
-
+			
 					playerMoney = GetTotalMoney();
 					playerMoney -= 15; //Money you lose.
-
-					if (0 > playerMoney)
+		
+					if(0 > playerMoney)
 					{
 						cout << "You are officially out of cash." << endl;
 						break;
 					}
 
-					SetTotalMoney(playerMoney);
+					SetTotalMoney(playerMoney);			
 				}
 			}
 		}
 
-		if (true == gameLost)
+		if(true == gameLost)
 		{
 			break;
 		}
@@ -468,8 +467,6 @@ void KiddiePark::RunKiddieParkTextAdventure()
 		cout << "This has definitely been quite the adventure. Would you like to do more stuff in the Kiddie Park?" << endl;
 		cout << "Press 1 to have some more fun in the Kiddie Park or anything else to leave the Kiddie Park:" << endl;
 		cin >> playKiddieParkAgainInput;
-
-	} while (playKiddieParkAgainInput == 1);
-
-	
+ 
+	}while(playKiddieParkAgainInput == '1');
 }

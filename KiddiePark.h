@@ -11,16 +11,15 @@ using namespace std;
 
 class KiddiePark
 {
-public:
-	KiddiePark();
-	~KiddiePark();
+	public:
+		KiddiePark(int playerMoney);
+		~KiddiePark();
 
-	void RunKiddieParkTextAdventure();
-	int DisplayChoices();
-	void SetTotalMoney(double totalMoney);
-	double GetTotalMoney();
+		void RunKiddieParkTextAdventure();
+		char DisplayChoices();
+		void SetTotalMoney(int totalMoney);
+		int GetTotalMoney();
 
-private:
-	double TotalMoney;
+	private:
+		int TotalMoney;
 };
-
