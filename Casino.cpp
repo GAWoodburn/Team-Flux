@@ -8,7 +8,7 @@
 
 using namespace std;
 
-Casino::Casino() {
+Casino::Casino(int& playerMoney, bool& playerDeath) {
     cout << "*****************Welcome********************* \n";
     cout << "\t Rules\n";
     cout << endl;
@@ -25,7 +25,9 @@ Casino::Casino() {
 
 int Casino::rand(int n)
 {
-    return rand(n) % n;   // ************* HELP, Unhandled exception - added by Elijah *********
+
+    return rand(n) % n;   // ************* HELP, Unhandled exception, I added the 'n' within the parameter to allow the rest of the 
+                          // program to continue - added by Elijah *********
 }
 
 void Casino::money()
@@ -50,7 +52,7 @@ void Casino::money()
                 exit(0);
             }
             else
-                cout << "\nPlease bet" << endl;
+                cout << "\nPlace bet" << endl;
         }
         else
         {
@@ -58,11 +60,11 @@ void Casino::money()
             cout << "Your money: $ " << a;
             if (a <= 0 || b >= 1000400)
             {
-                cout << "You are broken. The game is over" << endl;
+                cout << "You are broke. The game is over" << endl;
                 exit(0);
             }
             else
-                cout << "\nPlease bet." << endl;
+                cout << "\nPlace bet." << endl;
         }
     }
 }

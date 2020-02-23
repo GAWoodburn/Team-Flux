@@ -7,7 +7,7 @@ private:
 
 public:
 
-	Casino();
+	Casino(int& playerMoney, bool& playerDeath);
 
 	int x = 1;
 	int rand(int n);

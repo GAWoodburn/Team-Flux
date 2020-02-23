@@ -5,7 +5,7 @@
 #include <ctime> // for the time function 
 using namespace std;
 
-WaterPark::WaterPark(double &leftOverMoney, bool &playerDeath) {
+WaterPark::WaterPark(int &leftOverMoney, bool &playerDeath) {
     // intro + a switch statment leading to the dialogue paths (A/B/C)
     mainChoices(decision1, decision2a, decision4a, decision6b, playerMoney, isPlayerDead);
 
@@ -21,7 +21,7 @@ WaterPark::WaterPark(double &leftOverMoney, bool &playerDeath) {
     }
 
     // a switch statment leading to other decisions (A/B/C)
-    void WaterPark::mainChoices(char& decision1, char& decision2a, char& decision4a, char& decision6b, double& playerMoney, bool &isPlayerDead) {
+    void WaterPark::mainChoices(char& decision1, char& decision2a, char& decision4a, char& decision6b, int& playerMoney, bool &isPlayerDead) {
 
         bool endOfWaterPark = true; // flag to leave the water park
 
@@ -48,11 +48,20 @@ WaterPark::WaterPark(double &leftOverMoney, bool &playerDeath) {
             switch (decision1) {
             case 'A': // The Lazy River Tour, -$10.00
             case 'a':
+                if (playerMoney < TEN) { // in case the player doesn't have enough money
+                    cout << " ==================================================================\n";
+                    cout << " Looks like you don't have enough money, please make another choice\n";
+                    break;
+                }
                 cout << " Excellent choice, let's begin the tour!\n";
                 pathA(decision2a, decision4a, playerMoney, endOfWaterPark); // Path "A" (The Lazy River Tour)
                 break;
             case 'B': // The Sea Storm Wave Pool, -$7.00
             case 'b':
+                if (playerMoney < SEVEN) { // in case the player doesn't have enough money
+                    cout << " Looks like you don't have enough money, please make another choice\n";
+                    break;
+                }
                 cout << " Ah there's nothing like the sea!  let's get to it then shall we!\n";
                 pathB(decision6b, playerMoney); // Path "B" (The Sea Storm Wave Pool)
                 break;
@@ -70,7 +79,7 @@ WaterPark::WaterPark(double &leftOverMoney, bool &playerDeath) {
         }
     }
 
-    void WaterPark::decisionATwo(char& decision2a, double& playerMoney) { // The original path "A" (The Lazy River Tour)
+    void WaterPark::decisionATwo(char& decision2a, int& playerMoney) { // The original path "A" (The Lazy River Tour)
 
         playerMoney -= TEN; //  -$10.00
         cout << " ====================================================\n";
@@ -184,7 +193,7 @@ WaterPark::WaterPark(double &leftOverMoney, bool &playerDeath) {
         return true;
     }
 
-    void WaterPark::decisionBOne(char& decision6, double& playerMoney) { // The original "B" path (The Sea Storm Wave Pool)
+    void WaterPark::decisionBOne(char& decision6, int& playerMoney) { // The original "B" path (The Sea Storm Wave Pool)
 
         playerMoney -= SEVEN; // -$7.00 
 
@@ -265,7 +274,7 @@ WaterPark::WaterPark(double &leftOverMoney, bool &playerDeath) {
     }
 
     // The original "A" Path (The Lazy River Tour)
-    void WaterPark::pathA(char& decision2a, char& decision4a, double& playerMoney, bool& endOfWaterPark) {
+    void WaterPark::pathA(char& decision2a, char& decision4a, int& playerMoney, bool& endOfWaterPark) {
 
         decisionATwo(decision2a, playerMoney); // The original "A" Path (The Lazy River Tour), Leads to path "AA" or "AB"
 
@@ -278,7 +287,7 @@ WaterPark::WaterPark(double &leftOverMoney, bool &playerDeath) {
 
     }
 
-    void WaterPark::pathB(char& decision6b, double& playerMoney) {
+    void WaterPark::pathB(char& decision6b, int& playerMoney) {
 
         decisionBOne(decision6b, playerMoney); // The original "B" path (The Sea Storm Wave Pool)
 
@@ -291,7 +300,7 @@ WaterPark::WaterPark(double &leftOverMoney, bool &playerDeath) {
         }
     }
 
-    void WaterPark::pathC(double& playerMoney, bool& endOfWaterPark) { // The original "C" path (The Poseidon Waterfall Drop Slide of Terror!)
+    void WaterPark::pathC(int& playerMoney, bool& endOfWaterPark) { // The original "C" path (The Poseidon Waterfall Drop Slide of Terror!)
 
         playerMoney += FIVE; // +$5.00 
 
