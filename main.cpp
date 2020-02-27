@@ -47,13 +47,13 @@ int main() {
         options(playerMoney, isPlayerDead, testResult, endGame); // the switch statement the main menu uses
 
     }
-        system("PAUSE");
-        return 0;
-    }   
+    system("PAUSE");
+    return 0;
+}
 
 
-void menu(int &playerMoney, int &testResult, int &skip) { // Main Menu
-    
+void menu(int& playerMoney, int& testResult, int& skip) { // Main Menu
+
     if (skip == TWO) { // if statement used to skip the menu the first time since they just took the personality test
         cout << " \nHow would you like to continue your journey?\n"
             << " Account Balance: " << playerMoney << "\n"
@@ -75,7 +75,7 @@ void menu(int &playerMoney, int &testResult, int &skip) { // Main Menu
     }
 }
 
-void options(int &playerMoney, bool &isPlayerDead, int &testResult, bool &endGame) { // the switch statement the main menu uses
+void options(int& playerMoney, bool& isPlayerDead, int& testResult, bool& endGame) { // the switch statement the main menu uses
 
     // I added curley braces between the cases as I discovered that's the only way to call an object in a switch statement :)
     switch (testResult) {
@@ -116,6 +116,10 @@ void options(int &playerMoney, bool &isPlayerDead, int &testResult, bool &endGam
     case FIVE: {
         cout << " The Arcade\n";
         Arcade arcadeObj(playerMoney, isPlayerDead); // The arcade
+        if (isPlayerDead == true)
+        {
+            endGame = false;
+        }
         break;
     }
     case SIX: {
