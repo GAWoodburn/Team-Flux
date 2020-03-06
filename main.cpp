@@ -74,8 +74,7 @@ int main() {
         }
         case THREE: {
             cout << " The Casino\n";
-            cout << " **** STILL UNDER CONSTRUCTION ****\n\n";
-            //Casino blackJackObj; // The casino (BlackJack Game)
+            Casino casinoObj;
             break;
         }
         case FOUR: {
