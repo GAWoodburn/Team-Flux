@@ -10,7 +10,7 @@ private:
 
 public:
 
-	WaterPark(double &, bool &); // The constructor calls then entire program
+	WaterPark(int &, bool &); // The constructor calls then entire program
 
 	// Global Variables
 	const int ONE = 1;
@@ -23,22 +23,22 @@ public:
 		decision4a,
 		decision6b; // original "B" paths
 
-	double playerMoney = 100.00; // player starts off with $100.00
+	int playerMoney = 100; // player starts off with $100.00
 
 	bool isPlayerDead = false; // used to return true if the player has died
 
 	// forward declarations
 	void introduction();
-	void mainChoices(char&, char&, char&, char&, double&, bool&);
-	void decisionATwo(char&, double&);
+	void mainChoices(char&, char&, char&, char&, int&, bool&);
+	void decisionATwo(char&, int&);
 	void decisionAThree();
 	bool decisionAFour(char&);
-	void decisionBOne(char&, double&);
+	void decisionBOne(char&, int&);
 	void decisionBTwo();
 	void decisionBThree();
-	void pathA(char&, char&, double&, bool&);
-	void pathB(char&, double&);
-	void pathC(double&, bool&);
+	void pathA(char&, char&, int&, bool&);
+	void pathB(char&, int&);
+	void pathC(int&, bool&);
 	
 };
 

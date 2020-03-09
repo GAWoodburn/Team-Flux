@@ -11,7 +11,7 @@
 #include <string>
 using namespace std;
 
-Arcade::Arcade() {
+Arcade::Arcade(int& playerMoney, bool& playerDeath) {
 
 	cout << "\nEnter your name: ";  // Prompt for name
 	getline(cin, name);
@@ -78,6 +78,12 @@ here:  // Jump to here if player wishes to choose another game
 			cout << "\n\nThe screen lights up with Pinky dashing across the screen chuckling...";
 			cout << "\n\nBetter luck next time!";
 			playerMoney = playerMoney - PENALTY;  // Accumulate
+			if (playerMoney < ZERO) {
+				cout << "            You are officially out of cash.\n"
+					<< " ===================== GAME OVER ======================\n"
+					<< " ======================================================\n\n";
+				playerDeath = true; // the player ran out of $$, GAME OVER
+			}
 			break;
 		}
 	case 'B':  // Mortal Kombat
@@ -110,6 +116,12 @@ here:  // Jump to here if player wishes to choose another game
 		if (choice == 'L' || choice == 'l')  // Choice for ledge
 		{
 			playerMoney = playerMoney - PENALTY;
+			if (playerMoney < ZERO) {
+				cout << "            You are officially out of cash.\n"
+					<< " ===================== GAME OVER ======================\n"
+					<< " ======================================================\n\n";
+				playerDeath = true; // the player ran out of $$, GAME OVER
+			}
 			cout << "\n\nYou hurl him over the ledge and hope it's enough to stop him!";
 			cout << "\n\nAs you turn to leave, Scorpion jumps out of the lava and hurls it back at you!";
 			cout << "\n\nThe lava burns your legs as you are teleported back to the ARCANE ARCADE...";
@@ -176,6 +188,12 @@ here:  // Jump to here if player wishes to choose another game
 		else if (choice == 'P' || choice == 'p')  // Choice to keep playing
 		{
 			playerMoney = playerMoney - PENALTY;  // Accumulate
+			if (playerMoney < ZERO) {
+				cout << "            You are officially out of cash.\n"
+					<< " ===================== GAME OVER ======================\n"
+					<< " ======================================================\n\n";
+				playerDeath = true; // the player ran out of $$, GAME OVER
+			}
 			cout << "\nYou decide to continue playing the mythical, mysterious... POLYBIUS";
 			cout << "\n\nAs you sit and play your mind begins to hurt and eyes become strained!";
 			cout << "\n\nYou pass out amidst trying to keep up with the everchanging complexity of the game...";
@@ -266,6 +284,12 @@ here:  // Jump to here if player wishes to choose another game
 		if (choice == 'F' || choice == 'f')  // Choice for rapid fire
 		{
 			playerMoney = playerMoney - PENALTY;  // Accumulate
+			if (playerMoney < ZERO) {
+				cout << "            You are officially out of cash.\n"
+					<< " ===================== GAME OVER ======================\n"
+					<< " ======================================================\n\n";
+				playerDeath = true; // the player ran out of $$, GAME OVER
+			}
 			cout << "\n\nYou attempt to track every asteroid and rapid fire them away!";
 			cout << "\nAs you grit your teeth and fire with ferocity...";
 			cout << "\nYou see your missles flying past the enemy missles!!";

@@ -1,4 +1,4 @@
-//BlackJack Game
+﻿//BlackJack Game
 //Jian Shi
 //jshi@dmacc.edu
 //Group Project Team Flux
@@ -6,14 +6,19 @@
 #include "Casino.h"
 #include<time.h> 
 
+Casino::Casino(int& playerMoney, bool& playerDeath)
+{
+    DisplayRule();
+}
+
 char Casino::DisplayRule()
 {
     cout << "*****************Welcome to the Black Jack Game********************* \n";
     cout << "\t Rules：\n";
     cout << endl;
-    cout << "\t 1.Max bet is $100；\n";
+    cout << "\t 1.Max bet is $100\n";
     cout << endl;
-    cout << "\t 2.If your point is over 21, you will lose；\n";
+    cout << "\t 2.If your point is over 21, you will lose\n";
     cout << endl;
     cout << "\t 3.Dealer can't hit when card is over or equal to 16. \n";
     cout << endl;
@@ -28,9 +33,7 @@ int rand(int n)
     return rand() % n;
 }
 
-Casino::Casino()
-{
-}
+
 
 int Casino::rand(int n)
 {
@@ -106,7 +109,6 @@ a:cout << "Dealer Card: " << i << endl;
         if (d == 'n')
         {
             cout << "Game Over" << endl;
-            exit(0);
         }
         else
             return f;
@@ -114,15 +116,20 @@ a:cout << "Dealer Card: " << i << endl;
     else if (i == 21 && r < 21)
     {
         cout << "You win!\n\n" << endl; cout << "Continue?(y/n)\n\n" << endl;
+        cin >> d;
+        if (d == 'n')
+        {
+            cout << "Game Over" << endl;
+        }
         return t;
     }
     else
     {
         cout << "You win!\n\n" << endl; cout << "Continue?(y/n)\n\n" << endl;
+        cin >> d;
         if (d == 'n')
         {
             cout << "Game Over" << endl;
-            exit(0);
         }
         else
             return f;
@@ -149,7 +156,6 @@ void Casino::money()
             if (a >= 1000400 && b <= 0)
             {
                 cout << "The dealer is run out chips. The game is over!" << endl;
-                exit(0);
             }
             else
                 cout << "\nPlease bet" << endl;
@@ -160,7 +166,7 @@ void Casino::money()
             cout << "Your money: $ " << a;
             if (a <= 0 || b >= 1000400)
             {
-                cout << "You are broken. The game is over" << endl;
+                cout << "You are broke. The game is over" << endl;
                 exit(0);
             }
             else

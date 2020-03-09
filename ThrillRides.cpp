@@ -7,7 +7,7 @@
 // ** Email: gwoodburn@dmacc.edu
 // ** This program will contain a pathway "Trifling Thrills" within the Theme Park Adventure Game
 
-ThrillRide::ThrillRide() {
+ThrillRide::ThrillRide(int& playerMoney, bool& playerDeath) {
 
 	cout << "\nEnter your name: ";
 	getline(cin, name);
@@ -211,6 +211,12 @@ here:  // Jump to here if player wishes to choose another game
 			cout << "\nYou check the contents of your wallet... $5 down the drain...";
 			cout << "\nYou begin to feel sick again as you cut your losses and head for the exit...";
 			playerMoney = playerMoney - PENALTY;
+			if (playerMoney < ZERO) {
+				cout << "            You are officially out of cash.\n"
+					<< " ===================== GAME OVER ======================\n"
+					<< " ======================================================\n\n";
+				playerDeath = true; // the player ran out of $$, GAME OVER
+			}
 			break;
 		}
 		else if (choice == 'Y' || choice == 'y')
