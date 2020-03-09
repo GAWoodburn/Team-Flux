@@ -113,6 +113,9 @@ void options(int &playerMoney, bool &isPlayerDead, int &testResult, bool &endGam
     case FIVE: {
         cout << " The Arcade\n";
         Arcade arcadeObj(playerMoney, isPlayerDead); // The arcade
+        if (isPlayerDead == true) {
+            endGame = false;
+        }
         break;
     }
     case SIX: {
