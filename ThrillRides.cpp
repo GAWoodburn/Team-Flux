@@ -1,4 +1,7 @@
 #include "ThrillRides.h"
+#include <string>
+#include <chrono>
+#include <thread>
 
 // ** CIS164 - 22264
 // ** Week #5 - Topic A2 - Group Project
@@ -10,20 +13,21 @@
 ThrillRide::ThrillRide(int& playerMoney, bool& playerDeath) {
 	while (playerDeath == false)
 	{
+		system("cls");
 		cout << delimiter;
-		cout << "\nYou find yourself wanting some thrill...";
-		cout << "\nYou hear screams and yells, surely those must the fabled rides of *TRIFLING THRILLS*...";
-		cout << "\nAs you approach a large metal sign...\n";
+		cout << "You find yourself wanting some thrill...";
+		cout << "\n\nYou hear screams and yells, surely those must the fabled rides of *TRIFLING THRILLS*...";
+		cout << "\n\nAs you approach a large metal sign...\n";
 		cout << "\n*~~~~~~~~~~~~~~~~~~~~~~~~*";
 		cout << "\n*~~~~TRIFLING TERRORS~~~~*";
 		cout << "\n*~~~~~~~~~~~~~~~~~~~~~~~~*";
 		cout << "\n\nAt long last, you're ready to have some fun!!!";
-		cout << "\nHow shall you begin spending your precious money?";
-		cout << "\nAfter all...you deserve to let loose!!!\n";
+		cout << "\n\nHow shall you begin spending your precious money?";
+		cout << "\n\nAfter all...you deserve to let loose!!!\n";
 
 		here:  // Jump to here if player wishes to choose another game
 		menu(decision, delimiter, playerMoney);  // Menu passing in char decision and string delimiter
-
+		system("cls");
 		while (decision != 'A' && decision != 'a' && decision != 'B' && decision != 'b' && decision != 'C' && decision != 'c' && decision != 'D' && decision != 'd'
 			&& decision != 'E' && decision != 'e' && decision != 'F' && decision != 'f')  // Verify input is on the switch menu
 		{
@@ -36,40 +40,46 @@ ThrillRide::ThrillRide(int& playerMoney, bool& playerDeath) {
 		case 'A':
 		case 'a':
 			playerMoney = playerMoney - MOONMOUNTAIN;
-			cout << "\nYou've arrived at Moon Mountain!!";
-			cout << "\nYou hear a dainty older man over the speaker...";
-			cout << "\n*Ready yourself for an exciting adventure upwards and beyond!*";
-			cout << "\n*Have you got what it takes to explore outerspace??*";
+			cout << "\n\nYou've arrived at Moon Mountain!!";
+			cout << "\n\nYou hear a dainty older man over the speaker...";
+			cout << "\n\n*Ready yourself for an exciting adventure upwards and beyond!*";
+			cout << "\n\n*Have you got what it takes to explore outerspace??*";
+			this_thread::sleep_for(chrono::seconds(4));
 			cout << "\n\nExplore outerspace, hmm...This ride only appears to go maybe 50 feet upwards, hardly 'outerspace'...";
 			cout << "\nWith confidence, you step inside and begin to get strapped into the rather realistic rocketship.";
 			cout << "\nAs the countdown begins, the ride begins to thrust forward as if immense pressure is building underneath you...";
 			cout << "\nWell that's strange, you swear your seat is vibrating. Cool feature or is something devious at play?";
+			this_thread::sleep_for(chrono::seconds(4));
 			cout << "\n\nThe man over the speaker: ";
 			cout << "\n*Don't forget your helmet! It's real oxygen for your very real lungs!";
 			cout << "\nYou think to yourself, how odd...well of course my lungs are real!";
 			cout << "\nThe engines begin to thrust you upwards towards the stratosphere as the park below becomes but a dot...";
+			this_thread::sleep_for(chrono::seconds(4));
 			cout << "\n\nThe panic sets in as you realize you're not on Earth anymore.";
 			cout << "\nThere's only two levers within your reach...\n\n";
 			cout << left << setw(20) << "\nTO EARTH" << setw(20) << "BEYOND";
 			cout << "\n\nWhich will you pull? ('E' for Earth, 'B' for BEYOND): ";
 			cin >> choice;
+			cout << delimiter;
+
 			while (choice != 'E' && choice != 'e' && choice != 'B' && choice != 'b')  // Validate input
 			{
-				cout << "Your options are ('E' or 'B'): ";
+				cout << "\nYour options are ('E' or 'B'): ";
 				cin >> choice;
 			}
 			if (choice == 'E' || choice == 'e')
 			{
-				cout << delimiter;
 				cout << "\nYou decide to call it quits as your heart rate is already beating quite quickly...";
 				cout << "\nYou don't wish ANOTHER second of this emptiness in front of you";
 				cout << "\nFull of fear, you pull the sensible choice 'TO EARTH'";
 				cout << "\n\nYou hear a whining noise as the spaceship becomes peculiarly dark!";
-				cout << "\nYou must be falling back to Earth as a bright red cone envelopes the craft...";
+				this_thread::sleep_for(chrono::seconds(4));
+				cout << "\n\nYou must be falling back to Earth as a bright red cone envelopes the craft...";
 				cout << "\nAn intense pressure pushes you to the front of your seat and suddenly...";
 				cout << "\nThe door opens to your surprise!!";
 				cout << "\n\nThe Speaker Phone Man reaches out to help you to your feet...";
-				cout << "\nI expected a little bit of adventure from you!";
+				this_thread::sleep_for(chrono::seconds(4));
+				cout << "\n\nI expected a little bit of adventure from you!";
 				cout << "\n... but did you ever really leave?";
 				cout << "\nYou know you may never truly know.";
 				cout << "\nAt least you're safely on your feet ... ";
@@ -82,10 +92,12 @@ ThrillRide::ThrillRide(int& playerMoney, bool& playerDeath) {
 				cout << "\nAn afterburner fires on as you head towards Mars!";
 				cout << "\n\nThe elder man's voice appears over the radio...";
 				cout << "\n*Above and beyond is what you choose to be, oh how you impress me!!*";
-				cout << "\nThe spaceship reaches light speed as galaxies unfold before your eyes!!!";
+				this_thread::sleep_for(chrono::seconds(4));
+				cout << "\n\nThe spaceship reaches light speed as galaxies unfold before your eyes!!!";
 				cout << "\nNever have you seen anything so mezmerizing...";
 				cout << "\n\nYou begin to realize you're back above Earth and beginning to prepare for landing...";
 				cout << "\nThe craft begins to land as the older man reaches his hand out to help you from the craft...";
+				this_thread::sleep_for(chrono::seconds(4));
 				cout << "\n\nYou feel an overwhelming love for what you would previously refer to as 'Dirt'... Earth... whichever.";
 				cout << "\nYou know you'll remember the ride for as long as you live, longer maybe...";
 				cout << "\nYou look down at your hand and notice $10, the older man gives you a wink as you leave...";
@@ -96,25 +108,30 @@ ThrillRide::ThrillRide(int& playerMoney, bool& playerDeath) {
 		case 'b':
 			playerMoney = playerMoney - DEVILSDROP;
 			cout << "\nWelcome, Welcome";
-			cout << "\nYou've reached the depths of hell!!";
+			cout << "\nYou've reached the depths of Hell!!";
 			cout << "\nCharming...";
 			cout << "\n\nBright flames burn towards the sky as the warmth reaches your neck...you descend down to the main attraction...";
 			cout << "\nNext to what seems to be an old miners cart are employees ushering people into the carts";
-			cout << "\nThe hair on the back of you neck stands...your gut clenches up, but you've already paid, so forwards you go";
+			this_thread::sleep_for(chrono::seconds(4));
+			cout << "\n\nThe hair on the back of you neck stands...your gut clenches up, but you've already paid, so forwards you go";
 			cout << "\nYou're seated and ready to begin the descent into the depths";
 			cout << "\n\nYou quickly notice the group of 10 before you now seems to have lost some numbers...you count 6!";
 			cout << "\nDismissing it as paranoia, the ride begins a slow approach into a dark corridor...";
-			cout << "\nThe floor drops from beneath you, you're thrown to the right and left, and there's an intense heat climbing higher and higher!";
+			this_thread::sleep_for(chrono::seconds(4));
+			cout << "\n\nThe floor drops from beneath you, you're thrown to the right and left, and there's an intense heat climbing higher and higher!";
 			cout << "\nThe cart becomes searing hot as you pull your hand away from its ledge!!!";
 			cout << "\nYou appear before a rather dated doorway with a language you don't quite comprehend...yet it seems familiar";
 			cout << "\n\nA sinister voice fills your ears...";
-			cout << "\n*All day with you pesky mortals!*";
+			this_thread::sleep_for(chrono::seconds(4));
+			cout << "\n\n*All day with you pesky mortals!*";
 			cout << "\nHoly Moly, it's the DEVIL!!";
 			cout << "\n*I have been waiting all day*, he exclaims...*Oh wait, I have eternity*";
 			cout << "\nHe offers his hand out to you, it's aflame but yet cool to the touch...";
-			cout << "\n*Have some faith and join me inside?* He asks of you with a sly grin...";
+			this_thread::sleep_for(chrono::seconds(4));
+			cout << "\n\n*Have some faith and join me inside?* He asks of you with a sly grin...";
 			cout << "\n\nDo you give in or refuse? ('I' for go inside, 'R' for refuse and leave): ";
 			cin >> choice;
+			cout << delimiter;
 			while (choice != 'I' && choice != 'i' && choice != 'R' && choice != 'r')  // Validate input
 			{
 				cout << "\nYour options are ('I' or 'R'): ";
@@ -127,12 +144,14 @@ ThrillRide::ThrillRide(int& playerMoney, bool& playerDeath) {
 				cout << "\nYou look over the carts ledge and see endless fire in every direction...";
 				cout << "\n\nThe Devil appears in a cloud of smoke, *Whaddya think?*";
 				cout << "\n*My own little domain down here, not bad, eh?*\n";
-				cout << "\nYeah...not bad, hehhhh";
+				this_thread::sleep_for(chrono::seconds(4));
+				cout << "\n\nYeah...not bad, hehhhh";
 				cout << "\n\n(Nervous laughter fills the air)";
 				cout << "\n*You've proven yourself wise, a reward for one so daring...";
 				cout << "\nHe hands you $10...strange...";
 				cout << "\n\nYou're jerked backwards as the air becomes cleaner, fresher...you must be returning to the surface...";
-				cout << "\nAs you get out of the cart, the $10 has a burnt scent to it...but visibly, it's fine...";
+				this_thread::sleep_for(chrono::seconds(4));
+				cout << "\n\nAs you get out of the cart, the $10 has a burnt scent to it...but visibly, it's fine...";
 				cout << "\nWhat a strange experience... you return to Thrill Rides...";
 				playerMoney = playerMoney + REWARD;
 				break;
@@ -142,7 +161,8 @@ ThrillRide::ThrillRide(int& playerMoney, bool& playerDeath) {
 				cout << "\nYou refuse to enter and immediately are sent to the surface!";
 				cout << "\nYou can't help but feel relieved but remise...";
 				cout << "\n\nPerhaps you left with something that was rightfully yours, maybe you should've ventured forward!";
-				cout << "\nBut into HELL for a reward... surely isn't worth it, hmm...";
+				this_thread::sleep_for(chrono::seconds(3));
+				cout << "\n\nBut into HELL for a reward... surely isn't worth it, hmm...";
 				cout << "\nYou leave but the doubt still lingers in your mind...";
 				break;
 			}
@@ -152,13 +172,16 @@ ThrillRide::ThrillRide(int& playerMoney, bool& playerDeath) {
 			cout << "\nYou've heard of magic before, but nothing has struck you as magical until now...";
 			cout << "\nThe house doesn't charge a fee...(*well how do they make money then?*)";
 			cout << "\n\nAs you enter you're sense of perception becomes disoriented and every corner begins to look the same!";
-			cout << "\nYou're not sure what took over you, but the room seems to be spinning!";
+			this_thread::sleep_for(chrono::seconds(4));
+			cout << "\n\nYou're not sure what took over you, but the room seems to be spinning!";
 			cout << "\nYou're lost as you dash forward looking for the exit";
 			cout << "\n\nYou slip into a mirror, only it doesn't break and you fall straight through to the otherside...";
-			cout << "\nYou try to see clearly but you cannot...!";
+			this_thread::sleep_for(chrono::seconds(3));
+			cout << "\n\nYou try to see clearly but you cannot...!";
 			cout << "\nYou decide you must act!";
 			cout << "\n\nDo you give in to your senses and close your eyes, or will you continue to struggle for vision? \n('C' to close your eyes, 'V' to try and regain vision): ";
 			cin >> choice;
+			cout << delimiter;
 			while (choice != 'C' && choice != 'c' && choice != 'V' && choice != 'v')  // Validate input
 			{
 				cout << "\nYour options are ('C' or 'V'): ";
@@ -169,7 +192,8 @@ ThrillRide::ThrillRide(int& playerMoney, bool& playerDeath) {
 				cout << "\nAs you close your eyes, you immediately regain vision!";
 				cout << "\nWhat a strange sensation to have your eyes close but able to see the clearest you've ever seen!";
 				cout << "\n\nQuickly, you retrace your steps...turning left, right, another right and then left again...";
-				cout << "\nYou're at the entrance again! You turn around to see a solid wall of which you were just walking through!";
+				this_thread::sleep_for(chrono::seconds(4));
+				cout << "\n\nYou're at the entrance again! You turn around to see a solid wall of which you were just walking through!";
 				cout << "\nWhat a strange, strange place...";
 				cout << "\n\nNot only have you retraced your steps, you feel a bill crumpled in your hand... $10!!";
 				cout << "\nSometimes the unorthodox choice proves useful!!! Sometimes...";
@@ -181,7 +205,8 @@ ThrillRide::ThrillRide(int& playerMoney, bool& playerDeath) {
 				cout << "\nYou try to regain your vision, but with every second your eyes are open, the room becomes construed worse!";
 				cout << "\n\nYou can't help but panic as you let out a yell....!";
 				cout << "\nSomething grabs your hand and begins moving, as if leading you...";
-				cout << "\nYou decide it's best not to fight it as it's the most progress you've been able to make in this madhouse of mirrors...";
+				this_thread::sleep_for(chrono::seconds(4));
+				cout << "\n\nYou decide it's best not to fight it as it's the most progress you've been able to make in this madhouse of mirrors...";
 				cout << "\n\nYou are maneuvered through the hallways and find yourself at the entrance of Miracle Mirrors...";
 				cout << "\n*Thank you!!*, you exclaim, but there's nobody there...";
 				break;
@@ -193,12 +218,16 @@ ThrillRide::ThrillRide(int& playerMoney, bool& playerDeath) {
 			cout << "\nYou read the fine print on the towers sign as you wait your turn to be seated...";
 			cout << "\n'Not responsible for lack of satisfaction, yadda yadda...or otherwise feelings of complete dread for weeks after your experience on the ride...'";
 			cout << "\n\nThat's just the type of thrill you've been longing for!";
-			cout << "\nYou board the tower seat and begin to hear the countdown from 10";
+			this_thread::sleep_for(chrono::seconds(4));
+			cout << "\n\nYou board the tower seat and begin to hear the countdown from 10";
 			cout << "\nOnly as the countdown reaches 0, the ride seems to flip upside down!";
 			cout << "\n\nThe tower drops 100 feet, then the sensation of flipping appears again as the tower reverses back the 100 feet the opposite way!";
-			cout << "\nAfter 8 turns of this, you're sick to your stomach and longing to get off of the ride...";
-			cout << "\nShould you wait it out, as it surely can't be much longer...or risk yelling for an employee to stop the ride? \n('W' to wait, 'Y' to yell): ";
+			this_thread::sleep_for(chrono::seconds(4));
+			cout << "\n\nAfter 8 turns of this, you're sick to your stomach and longing to get off of the ride...";
+			cout << "\n\nShould you wait it out, as it surely can't be much longer...or risk yelling for an employee to stop the ride? \n('W' to wait, 'Y' to yell): ";
 			cin >> choice;
+			cout << delimiter;
+
 			while (choice != 'W' && choice != 'w' && choice != 'Y' && choice != 'y')  // Validate input
 			{
 				cout << "\nYour options are ('W' or 'Y'): ";
@@ -209,7 +238,8 @@ ThrillRide::ThrillRide(int& playerMoney, bool& playerDeath) {
 				cout << "\nYou decide to wait it out!";
 				cout << "\nAs the ride goes another turn, your wallet becomes dislodged from your pocket!";
 				cout << "\nMoney begins to slip out, but you grab the majority of it...";
-				cout << "\nAs the ride ends, you're in disbelief that some people find that fun, you hurl off to the side..";
+				this_thread::sleep_for(chrono::seconds(4));
+				cout << "\n\nAs the ride ends, you're in disbelief that some people find that fun, you hurl off to the side..";
 				cout << "\n\nYou check the contents of your wallet... $5 down the drain...";
 				cout << "\nYou begin to feel sick again as you cut your losses and head for the exit...";
 				playerMoney = playerMoney - PENALTY;
@@ -220,6 +250,7 @@ ThrillRide::ThrillRide(int& playerMoney, bool& playerDeath) {
 				cout << "\nYou can't handle it anymore and you yell out!!!";
 				cout << "\nThe ride stops and you're not 20 feet off the ground...but how the...?";
 				cout << "\nWhat seemed to be from such a previous height, surely can't just be imagined...";
+				this_thread::sleep_for(chrono::seconds(4));
 				cout << "\n\nAt least you're finally off the ride, and you feel like that's for the best, for now...";
 				cout << "\nAn employee apologizes for your grievances with the ride and hands you back your money and then some...$10";
 				playerMoney = playerMoney + REWARD;
@@ -232,9 +263,12 @@ ThrillRide::ThrillRide(int& playerMoney, bool& playerDeath) {
 			cout << "\n*A place that puts bumper cars to shame!*";
 			cout << "\n*A place where you can feel the wind in your hair, adrenaline down your body, and 800 horses under your feet!!";
 			cout << "\n\nYou hear the roar of the beautiful, exotic cars all around you";
-			cout << "\nThe ground vibrating with the passing of the cars around the track!!";
-			cout << "\nYou approach the vehicles but you can't decide between the Ferrari or the Lamborghini...\n('F' for Ferrari, 'L' for Lamborghini): ";
+			this_thread::sleep_for(chrono::seconds(4));
+			cout << "\n\nThe ground vibrating with the passing of the cars around the track!!";
+			cout << "\n\nYou approach the vehicles but you can't decide between the Ferrari or the Lamborghini...\n('F' for Ferrari, 'L' for Lamborghini): ";
 			cin >> choice;
+			cout << delimiter;
+
 			while (choice != 'F' && choice != 'f' && choice != 'L' && choice != 'l')  // Validate input
 			{
 				cout << "\nYour options are ('F' or 'L'): ";
@@ -246,11 +280,13 @@ ThrillRide::ThrillRide(int& playerMoney, bool& playerDeath) {
 				cout << "\nAs you fire it up, the engine roars to life!!";
 				cout << "\nYou begin to peel out and smell the rubber tracks left in your dust!";
 				cout << "\n\nWhat an exhilirating feeling!";
-				cout << "\nFor a few laps, you're able to roar around the track";
+				this_thread::sleep_for(chrono::seconds(4));
+				cout << "\n\nFor a few laps, you're able to roar around the track";
 				cout << "\nYou pull the car over as your laps are up and feel refreshed!";
 				cout << "\n\nAs you leave... Louis Camilleri hands you a card with a bill inside...$10!";
-				cout << "\nPaid to drive a beautiful car at alarmingly dangerous speeds? Winning!";
-				cout << "\nYou can't help but stroll back to Trifling Thrills with a smile on your face...";
+				this_thread::sleep_for(chrono::seconds(4));
+				cout << "\n\nPaid to drive a beautiful car at alarmingly dangerous speeds? Winning!";
+				cout << "\n\nYou can't help but stroll back to Trifling Thrills with a smile on your face...";
 				playerMoney = playerMoney + REWARD;
 				break;
 			}
@@ -259,6 +295,7 @@ ThrillRide::ThrillRide(int& playerMoney, bool& playerDeath) {
 				cout << "\nYou climb into the grey Lamborghini...";
 				cout << "\nIt stinks like cheese and you feel squished...";
 				cout << "\nYou'd think with the ticket price on this thing it'd be comfortable...";
+				this_thread::sleep_for(chrono::seconds(4));
 				cout << "\n\nAs you begin your laps around the track, you continously miss gears!";
 				cout << "\nThe car dipping back and forth with the missed shifts becomes so annoying that you call it quits...";
 				cout << "\nYou leave the car with a feeling of disappointment and return to Trifling Thrills...";
@@ -271,6 +308,7 @@ ThrillRide::ThrillRide(int& playerMoney, bool& playerDeath) {
 			goto leave;
 		}
 		}
+
 		cout << delimiter;
 
 		while (playerMoney <= 0)  // Check for playerMoney below or at 0
@@ -283,6 +321,8 @@ ThrillRide::ThrillRide(int& playerMoney, bool& playerDeath) {
 
 		cout << "\n\nDo you wish to play another game? ('Y' or 'N'): ";  // Verify user wants to continue with another game or quit
 		cin >> resume;
+		system("cls");
+
 		if (resume != 'Y' && resume != 'y' && resume != 'N' && resume != 'n')  // Validate input
 		{
 			cout << "\nYour choices are ('Y' or 'N'): ";
@@ -301,6 +341,7 @@ ThrillRide::ThrillRide(int& playerMoney, bool& playerDeath) {
 			cout << "\n**********************************";
 			break;
 		}
+		system("cls");
 	}
 	leave: // Case f goto command to bypass continue or leave prompt
 	cout << "\n\nYour score at TRIFLING THRILLS was: $" << playerMoney << "\n\n";  // Display player name and final money count
