@@ -103,7 +103,6 @@ void options(int &playerMoney, bool &isPlayerDead, int &testResult, bool &endGam
         break;
     }
     case FOUR: {
-        cout << " The Thrill Park\n";
         ThrillRide thrillRideObj(playerMoney, isPlayerDead); // the thrill park
         if (isPlayerDead == true) {
             endGame = false; // if the player ran out of money or is dead the game ends
