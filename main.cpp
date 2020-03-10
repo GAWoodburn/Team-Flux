@@ -32,7 +32,7 @@ int main() {
     int testResult; // used initially for the personality test, later for moving through the entire park
 
     ChooseYourAdventure chooseObj(testResult); // Intro and Personality Test
-
+    system("cls");
     int playerMoney = 100; // used to pass the amount of money the player throughout the entire park
     bool isPlayerDead = false; // used to end the game if the player dies or runs out of money
     bool endGame = true; // the flag to end the program
@@ -111,7 +111,6 @@ void options(int &playerMoney, bool &isPlayerDead, int &testResult, bool &endGam
         break;
     }
     case FIVE: {
-        cout << " The Arcade\n";
         Arcade arcadeObj(playerMoney, isPlayerDead); // The arcade
         if (isPlayerDead == true) {
             endGame = false;
